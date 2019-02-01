@@ -233,26 +233,47 @@ public class CalendarStuff {
    * @return          long   count of total number of days
    */
    public static long daysBetween( long month1, long day1, long year1, long month2, long day2, long year2 ) {
-int daysInBetween = 0;
-     if (year1 == year2) {
-        for (let i = 0; i < month1; i++){
-        daysInBetween += days [i];
-        }
-      return daysInBetween;
+     long daysInBetween = 0;
+        if (year1 == year2) {
+     if (month1 == month2){
+       daysInBetween += day2 - day1;
+       return daysInBetween;
      }
-
-
-
-
-
-
-      long dayCount = 0;
-      return dayCount;
+     daysInBetween += daysInMonth(month1, year1) - day1;
+     for (long i = month1 + 1; i < month2; i++) {
+       daysInBetween += daysInMonth(i, year1);
+     }
+     daysInBetween += day2;
+     return daysInBetween;
    }
-
+      if (compareDate(month1, day1, year1, month2, day2, year2) == 0){
+        return daysInBetween;
+     } 
+       else if(compareDate(month1, day1, year1, month2, day2, year2) > 0){
+        long temporaryMonth = month1;
+         month1 = month2;
+         month2 = temporaryMonth;
+         long temporaryDay = day1;
+         day1 = day2;
+         day2 = temporaryDay;
+         long temporaryYear = year1;
+         year1 = year2;
+         year2 = temporaryYear;
+      }    
+   daysInBetween += daysInMonth(month1, year1) - day1;
+   for ( long i = month1 + 1; i <= 12; i++) {
+     daysInBetween += daysInMonth(i, year1);
+   }
+   daysInBetween += ((year2 - year1) - 1) * 365;
+   for ( long i = 1; i < month2; i++) {
+     daysInBetween += daysInMonth(i, year2);
+   }
+   daysInBetween += day2;
+   for ( long i = year1 + 1; i < year2; i++) {
+     if (isLeapYear(i)){
+       daysInBetween++;
+     }
+   }
+   return daysInBetween;
+ }
 }
-
-
-
-
-
