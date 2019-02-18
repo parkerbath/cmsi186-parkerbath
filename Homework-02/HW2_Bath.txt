@@ -1,0 +1,47 @@
+
+Evaluation for homework 03: Dice Game
+
+Die, DiceSet, and HighRoll Program
+Includes running DieAndDiceSetTestHarness
+Includes running automated HighRoll tests
+=========================================
+
+A total of one point each for the following:
+
+class Die         : Exists, coding style acceptable   - 1 point
+constructor       : works                             - 1 point
+roll              : works                             - 0 points
+getValue          : works                             - 1 point
+setSides          : works                             - 1 point
+instan. toString  : works                             - 1 point
+class toString    : works                             - 1 point
+main for testing  : Exists, with some tests in it     - 1 point
+
+class DiceSet     : Exists, coding style acceptable   - 1 point
+constructor       : works                             - 1 point
+sum               : works                             - 1 point
+roll              : works                             - 0 points
+rollIndividual    : works                             - 1 point
+getIndividual     : works                             - 1 point
+instan. toString  : works                             - 1 point
+class toString    : works                             - 1 point
+isIdentical       : works                             - 0 points
+main for testing  : Exists, with some tests in it     - 1 point
+
+class HighRoll    : Exists, coding style acceptable   - 0 points
+TUI:              : works, all options present        - 0 points
+option 1 roll all : works                             - 0 points
+option 2 roll one : works                             - 0 points
+option 3 sum      : works                             - 0 points
+option 4 save     : works                             - 0 points
+option 5 display  : works                             - 0 points
+option 6 quit     : works                             - 0 points
+
+Files in Git      : all three present                 - 0 points
+Test Harness      : passes all evaluation tests       - 1 point
+HighRoll          : passes all evaluation tests       - 0 points
+
+Total 16 out of 30 = 53.33% which is an F
+
+Comments: Roll method is broken, parenthesis not present so always rolls a 1. Variable "tempBoolean" should be "temporaryBoolean". No HighRoll.java included in git.
+
