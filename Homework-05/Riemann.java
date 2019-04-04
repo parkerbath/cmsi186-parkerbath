@@ -124,8 +124,10 @@ public static double poly () {
 
 public static double sin () {
 	if (coeff.length == 0) {
-		throw new IllegalArgumentException ("Must enter coefficient arguments");
-		}
+		coeff = new double[2];
+		coeff[0] = 0;
+		coeff[1] = 1;
+	}
 	width = Math.sqrt(Math.pow(uBound-lBound, 2));
 	  do {
 		areaLast = areaCurrently;
