@@ -64,20 +64,20 @@ runMyTests method       : exists, tests three methods       - 0 points
 Integrators class [EC]  : if it exists/compiles [optional]  - 0 point EC
 Integrate polynomials   : method exists in some file        - 1 point
 Integrate sine          : method exists in some file        - 1 point
-Integrate cosine [EC]   : method exists in some file        - 0 point EC
-Integrate tangent [EC]  : method exists in some file        - 0 point EC
+Integrate cosine [EC]   : method exists in some file        - 1 point EC
+Integrate tangent [EC]  : method exists in some file        - 1 point EC
 Integrate log [EC]      : method exists in some file        - 1 point EC
 Integrate exp [EC]      : method exists in some file        - 1 point EC
 Integrate sq. root [EC] : method exists in some file        - 1 point EC
 Integrate compos. [EC]  : method exists in some file        - 0 point EC
 tests input valid       : passes all six checks             - 6 points
-tests for 2nd deg poly  : gets correct answers on tests     - 5 points
+tests for 2nd deg poly  : gets correct answers on tests     - 4 points
 test for 5th deg poly   : gets correct answer on test       - 1 point
 test for sin (5 pts)    : gets correct answers on tests     - 4 points
 Riemann.java in repo    : one file [gimme]                  - 1 point
 Coding style            : as noted in text above            - 5 points
 
-Total 33 out of 30 = 100% which is an A-plus
+Total 31 out of 30 = 103.33% which is an A-plus
 
 It is possible to get more than 100% on this assignment.  The total percent
 will be applied to the 15% that this exercise is worth overall.  For example,
@@ -86,11 +86,14 @@ This means you will get 18.5 points for this 15-point exercise.
 
 Detailed comments:
 ==================
-You didn't have any methods to test your program, so -2.
-Some of your sin tests were outside of the proper margin of error, so -1.
-Your log, exp, and sqrt methods passed all their respective tests so +3.
-The other extra methods had the same trouble as your sin method, so no credit was given.
-
+You didn't have the required "runMyTests()" method implemented with a "runTests"
+   function from the command line, costing you two points.
+One of your "poly" functions produced an answer that was too far off for credit;
+   you got 1068.75 where it should have been close to 1268.75, costing a point...
+One of your "sin" functions was too far off, as well; looking for 1.9137 and got
+   2.20118, costing you another point.
+You implemented code for all the EC functions and the answers were very good, so
+   you get full credit for those.
 30/30
 
 Total course grade so far:
@@ -98,9 +101,9 @@ homework00 @  5%:  100.00% =  5.00 points
 homework01 @  5%:  100.00% =  5.00 points
 homework02 @  5%:   98.33% =  4.92 points
 homework03 @ 10%:   66.67% =  6.67 points
-homework04 @ 10%:   94.12% =  9.41 points
-homework05 @ 15%:  100.00% = 15.00 points
+homework04 @ 10%:   00.00% =  0.00 points
+homework05 @ 15%:  103.33% = 15.50 points
 class part @ 10%:  100.00% = 10.00 points
 
-                     total:  56.00 out of 60.00 points = 93.33% which is an A-minus
+                     total:  47.09 out of 60.00 points = 78.48% which is a C-plus
 
