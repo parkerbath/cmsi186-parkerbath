@@ -1,15 +1,27 @@
 public class SoccerSim {
-    private final double maxPos = 1000.0;
-    private final double poleX = 300;
-    private final double poleY = 600;
-    Ball pole = new Ball(poleX, poleY, 0, 0);
+    private static final double maxPos = 1000.0;
+    static private final double poleX = 1000;
+    static private final double poleY = 1000;
+    static Ball[] b = null;
+
  
  public SoccerSim() {
      super();
     }
- 
-  public void handleInitialArguments( String args[] ) {
-    int numberOfBalls = (int) args.length/4;
+
+
+public static boolean poleCollision (Ball[] b) {
+    boolean ballHitsPole = false;
+                for (int i = 0; i <= b.length - 1; i++) {
+                    if (b[i].getDistance(poleX)) {
+                        System.out.println ("Ball " + i + " had collided with the pole\n");
+                                                System.exit(0);
+                    }
+                    ballHitsPole = true;
+        }
+}
+
+  public static void handleInitialArguments( String args[] ) {
     System.out.println("\nHello world from the SoccerSim program!\n");
     if( 0 == args.length ) {
                 System.out.println( "  Sorry, you have to enter more than four arguments\n" +
@@ -25,36 +37,58 @@ public class SoccerSim {
                                                 System.exit( 0 );
                    }
         }
+
          for (int i = 0; i < args.length - 1; i += 4) {
-                if (Math.abs(Double.parseDouble(args[i])) >= maxPos || Math.abs(Double.parseDouble(args[i + 1])) >= maxPos) {
-                                        System.out.println("   Sorry you must enter at least four arguments\n" +
-                                                                                                                                                "   Usage: java SoccerSim <x> <y> <X Velocity> <Y Velocity> {Time Slice}\n" +
-                                                                                                                                                "   Please try again...\n" );
-                                                System.exit( 0 );
-                    }
+            try {
+                b[i/4] = new Ball(Double.parseDouble[i], Double.parseDouble[i+1], Double.parseDouble[i+2], Double.parseDouble[i+3]);
             }
+            catch( NumberFormatException nfe ) {
+                     System.out.println( USAGE_MESSAGE );
+                     System.exit( 5 );
+                    }
+                   i += 4;
+                   j++;
+                   }
+
                 System.out.println("FIELD SIZE is: " + maxPos + "ft by " + maxPos + "ft");
                 System.out.println("POLE LOCATION is at: " + poleX + ", " + poleY);
     }
  
     public void checkCollision(Ball[] b){
-            for (int i = 0; i < b.length; i++) {
-                    if (b[i].inContact(pole)) {
-                        System.out.println ("Ball " + i + " had collided with the pole\n");
-                                                System.exit(0);
-                    }
-        }
                 for(int i = 0; i < b.length; i++){
                         for (int j = i + 1; j < b.length; j++) {
-                                if (b[i].inContact(b[j])) {
+                                if (b[i].getDistance(b[j])) {
                                                 System.out.println("Ball " + i + " and Ball " + j + " collided at:");
-                                                System.out.println("Ball " + i + " location: " + b[i].getLocation());
-                                                System.out.println("Ball " + j + " location: " + b[j].getLocation());
+                                                System.out.println("Ball " + i + " location: " + b[i].toString());
+                                                System.out.println("Ball " + j + " location: " + b[j].toString());
                                                 System.exit(0);
                                                     }
                                      }
                     }
          }
+
+
+
+public boolean moreThanOneBallMoving() {
+    for( int i = 0; i < soccerBalls.length; i++ ) {
+        if(b[i].isMoving() ) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+public boolean inBounds() {
+    for( int i = 0; i < soccerBalls.length; i++ ) {
+        if(b[i].isOnField() ) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
  
   public static void main( String args[] ) {
         SoccerSim sSim = new SoccerSim();
