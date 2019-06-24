@@ -427,6 +427,39 @@ public class BrobInt {
       System.out.println( Arrays.toString( d ) );
    }
 
+   public BrobInt removeLeadingZeros( BrobInt gint ) {
+    Character sign = null;
+    String returnString = gint.toString();
+    int index = 0;
+      if( allZeroDetect( gint ) ) {
+        return gint;
+      }
+      if( ('-' == returnString.charAt( index )) || ('+' == returnString.charAt( index )) ) {
+       sign = returnString.charAt( index );
+      index++;
+      }
+      if( returnString.charAt( index ) != '0' ) {
+       return gint;
+      }
+      while( returnString.charAt( index ) == '0' ) {
+       index++;
+      }
+      returnString = gint.toString().substring( index, gint.toString().length() );
+      if( sign != null ) {
+        returnString = sign.toString() + returnString;
+      }
+       return new BrobInt( returnString );
+    }
+
+   public boolean allZeroDetect( BrobInt gint ) {
+     for( int i = 0; i < gint.toString().length(); i++ ) {
+       if( gint.toString().charAt(i) != '0' ) {
+         return false;
+       }
+    }
+    return true;
+   }
+
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  the main method redirects the user to the test class
    *  @param  args  String array which contains command line arguments
